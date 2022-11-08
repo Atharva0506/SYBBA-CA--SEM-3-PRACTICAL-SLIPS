@@ -4,6 +4,6 @@ Employees = data.frame(
   Gender=c("M","M","M","M","M"),
   Age=c(23,22,25,26,32),
   Designation=c("Clerk", "Manager", "Executive", "CEO", "ASSISTANT"),
-  Phone No=c("123-34-2346","123-44-779","556-24-433","123-98-987","679-77-576")
+  PhoneNo=c("123-34-2346","123-44-779","556-24-433","123-98-987","679-77-576")
 )
 Employees
