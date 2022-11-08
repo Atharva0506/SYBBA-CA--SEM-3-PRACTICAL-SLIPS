@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Slip3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<!-- ng-repeat- 1t used to repeat a set of html code for a number of times-->
+<style>
+body,h1 {
+padding: 1rem;
+font-size: 1.5rem;
+background-color:rgb(122, 164, 125);
+color: aliceblue;
+}
+
+th,td{
+    padding: 1rem;
+    border: 2px solid aliceblue;
+  }
+</style>
+<body ng-app="myApp" ng-controller="ListController">
+<hl align='center'>Student Details:</h1>
+<table  align='center'>
+    <thead>
+        <tr>
+        <th>S No</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Mobile No.</th>
+        <ftr>
+        </thead>
+        <tr ng-repeat="item in itemsDetails">
+        <td> {{item.sno}} </td>
+        <td> {{item.name}} </td>
+        <td> {{item.city}} </td>
+        <td> {{item.mobileno}} </td>
+        </tr>
+        </table>
+        <script>
+            var app = angular.module('myApp',[]);
+            app.controller(
+                'ListController',function($scope){
+                    $scope.itemsDetails=[
+                        {
+                            sno:1,
+                            name:'Adhia',
+                            city:'Pune',
+                            mobileno:1234567890,
+                        },
+                        {
+                            sno:2,
+                            name:'Abira',
+                            city:'Mumbai',
+                            mobileno:9876543210,
+                        },
+                        {
+                            sno:3,
+                            name:'Akira',
+                            city:'Satara',
+                            mobileno:0123456789,
+                        },
+                        {
+                            sno:4,
+                            name:'Amira',
+                            city:'Pune',
+                            mobileno:8888999912,
+                        },
+                    ]});
+        </script>
+</body>
+
+</html>
