@@ -1,4 +1,4 @@
-// /Write a 'C' program to create a singly Link list and display its alternative nodes. (start displaying from first node)
+// Write a 'C' program to create a singly Link list and display its alternative nodes. (start displaying from first node)
 
 #include <stdio.h>
 #include <malloc.h>
