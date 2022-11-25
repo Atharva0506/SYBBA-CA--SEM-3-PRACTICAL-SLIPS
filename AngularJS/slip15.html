@@ -5,223 +5,105 @@ passenger etc. Display the e —Ticket.
  -->
 
 
- <html>
+<html>
 
 <head>
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-
 </head>
-
 <center>
 
-<body ng-app="mainApp" ng-controller="busController as bus">
-
-<h2>Bus Reservation System</h2>
-
-<div>
-
-
-
-<table border="1">
-
-<tr>
-
-<td>Enter the Name of Passenger</td>
-
-<td><input type="text" name="name1" ng-model="bus.name"></td>
-
-</tr>
-
-<tr>
-
-<td>Enter your Address </td>
-
-<td>
-
-<input type="text" name="baddress" ng-model="bus.address">
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Enter Contact No </td>
-
-<td><input type="text" name="bcontactno" ng-model="bus.contactno"> </td>
-
-</tr>
-
-<tr>
-
-<td>Enter Source Station</td>
-
-<td><select name="source" ng-model="bus.source">
-
-<option>Pune</option>
-
-<option>Mumbai</option>
-
-<option>Nashik</option>
-
-<option>Kolhapur</option>
-
-</select></td>
-
-</tr>
-
-<tr>
-
-<td>Enter Destination Station</td>
-
-<td><select name="dest" ng-model="bus.dest1">
-
-<option>Pune</option>
-
-<option>Mumbai</option>
-
-<option>Nashik</option>
-
-<option>Kolhapur</option>
-
-</select></td>
-
-</tr>
-
-<tr>
-
-<td>Enter Date of booking</td>
-
-<td> <input type="date" name="dob" ng-model="bus.dob"></td>
-
-</tr>
-
-<tr>
-
-<td>Enter Date of journey</td>
-
-<td> <input type="date" name="doj" ng-model="bus.doj"></td>
-
-</tr>
-
-<tr>
-
-<td>Enter No of Passengers</td>
-
-<td> <input type="number" name="noofpass" ng-model="bus.noofpass"></td>
-
-</tr>
-
-
-
-<tr>
-
-<td> <input type="button" value="Display eTicket" ng-click="isShow('show')">
-
-</td>
-
-</tr>
-
-</table>
-
-</div>
-
-<div ng-show="showval">
-
-
-
-<table border="2">
-
-<thead>
-
-<td>
-
-name
-
-</td>
-
-<td>address</td>
-
-<td>contactno</td>
-
-<td>source</td>
-
-<td>destination</td>
-
-<td>date of booking</td>
-
-<td>date of journey</td>
-
-<td>number of Passengers</td>
-
-
-
-</thead>
-
-<br>
-
-<br>
-
-<tr>
-
-<td>{{bus.name}}</td>
-
-<td>{{bus.address}}</td>
-
-<td>{{bus.contactno}}</td>
-
-<td>{{bus.source}}</td>
-
-<td>{{bus.dest1}}</td>
-
-<td>{{bus.dob}}</td>
-
-<td>{{bus.doj}}</td>
-
-<td>{{bus.noofpass}}</td>
-
-</tr>
-
-</table>
-
-</div>
-
-<script>
-
-var mainApp = angular.module("mainApp", []);
-
-
-
-mainApp.controller('busController', function ($scope) {
-
-$scope.showval = false;
-
-$scope.isShow = function (param) {
-
-
-if (param == "show") {
-
-$scope.showval = true;
-
-
-
-}
-
-}
-
-
-
-});
-
-</script>
-
+    <body ng-app="mainApp" ng-controller="busController as bus">
+        <h2>Bus Reservation System</h2>
+        <div>
+            <table border="1">
+                <tr>
+                    <td>Enter the Name of Passenger</td>
+                    <td><input type="text" name="name1" ng-model="bus.name"></td>
+                </tr>
+                <tr>
+                    <td>Enter your Address </td>
+                    <td>
+                        <input type="text" name="baddress" ng-model="bus.address">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter Contact No </td>
+                    <td><input type="text" name="bcontactno" ng-model="bus.contactno"> </td>
+                </tr>
+                <tr>
+                    <td>Enter Source Station</td>
+                    <td><select name="source" ng-model="bus.source">
+                            <option>Pune</option>
+                            <option>Mumbai</option>
+                            <option>Nashik</option>
+                            <option>Kolhapur</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Enter Destination Station</td>
+                    <td><select name="dest" ng-model="bus.dest1">
+                            <option>Pune</option>
+                            <option>Mumbai</option>
+                            <option>Nashik</option>
+                            <option>Kolhapur</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Enter Date of booking</td>
+                    <td> <input type="date" name="dob" ng-model="bus.dob"></td>
+                </tr>
+                <tr>
+                    <td>Enter Date of journey</td>
+                    <td> <input type="date" name="doj" ng-model="bus.doj"></td>
+                </tr>
+                <tr>
+                    <td>Enter No of Passengers</td>
+                    <td> <input type="number" name="noofpass" ng-model="bus.noofpass"></td>
+                </tr>
+                <tr>
+                    <td> <input type="button" value="Display eTicket" ng-click="isShow('show')">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div ng-show="showval">
+            <table border="2">
+                <thead>
+                    <td>name</td>
+                    <td>address</td>
+                    <td>contactno</td>
+                    <td>source</td>
+                    <td>destination</td>
+                    <td>date of booking</td>
+                    <td>date of journey</td>
+                    <td>number of Passengers</td>
+                </thead>
+                <br>
+                <br>
+                <tr>
+                    <td>{{bus.name}}</td>
+                    <td>{{bus.address}}</td>
+                    <td>{{bus.contactno}}</td>
+                    <td>{{bus.source}}</td>
+                    <td>{{bus.dest1}}</td>
+                    <td>{{bus.dob}}</td>
+                    <td>{{bus.doj}}</td>
+                    <td>{{bus.noofpass}}</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var mainApp = angular.module("mainApp", []);
+            mainApp.controller('busController', function ($scope) {
+                $scope.showval = false;
+                $scope.isShow = function (param) {
+                    if (param == "show") {
+                        $scope.showval = true;
+                    }
+                }
+            });
+        </script>
 </center>
-
-
-
 </body>
 
 </html>
