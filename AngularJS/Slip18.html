@@ -1,0 +1,44 @@
+<!-- Using AngularJS create a SPA that shows Teacher Profile who are teaching SYBBA
+(CA) with photo. -->
+
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <head>
+        <title>Slip 29</title>
+    </head>
+
+    
+    
+    <body>
+        <div ng-app="teacherApp" ng-controller="teacherCtrl">
+            <div ng-repeat="teacher in teachers | filter: {subject: 'SYBBA (CA)'}">
+              <h3>{{teacher.name}}</h3>
+              <img ng-src="{{teacher.photo}}" alt="{{teacher.name}}">
+              <p>{{teacher.subject}}</p>
+              <p>{{teacher.description}}</p>
+            </div>
+          </div>
+<script>
+    var app = angular.module('teacherApp', []);
+app.controller('teacherCtrl', function($scope) {
+  $scope.teachers = [
+    {
+      name: 'John Smith',
+      subject: 'SYBBA (CA)',
+      photo: 'https://example.com/john-smith.jpg',
+      description: 'John Smith is an experienced teacher who has been teaching SYBBA (CA) for over 10 years. He is well-versed in the subject and has a passion for teaching.'
+    },
+    {
+      name: 'Jane Doe',
+      subject: 'SYBBA (CA)',
+      photo: 'https://example.com/jane-doe.jpg',
+      description: 'Jane Doe is a dedicated teacher who is committed to helping her students succeed in SYBBA (CA). She has a wealth of knowledge and experience in the subject.'
+    },
+    // Additional teachers
+  ];
+});
+
+</script>          
+    </body>
+</html>
