@@ -1,0 +1,63 @@
+<!-- 11)Using Angular]S Create a SPA that show History of some(4-8) Historical
+Places (use MVC). -->
+
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"> </script>
+</head>
+<h1 style="background-color:#900C3F" align="center"> Historical places in india</H1>
+<div ng-view></div>
+
+<body>
+    <div ng-app="mainApp">
+        <p><a href="#aurangabad">Aurangabad</a></p>
+        <p><a href="#pune">Pune</a></p>
+        <p><a href="#agra">Agra</a></p>
+        <div ng-view></div>
+        <script type="text/ng-template" id="aurangabad.html">
+<h1 style="background-color:powderblue;"> Aurangabad</h1>
+<p>Aurangabad is a city in Maharashtra state, in India. It's known for the 17th-century marble Bibi ka Maqbara shrine, styled on the Taj Mahal. The nearby Shivaji Maharaj Museum,</p>
+
+{{message}}
+</script>
+        <script type="text/ng-template" id="pune.html">
+<h1 style="background-color:red;">Pune</h1>
+<p>Pune is a sprawling city in the western Indian state of Maharashtra. It was once the base of the Peshwas (prime ministers) of the Maratha Empire, which lasted from 1674 to 1818.</p>
+
+{{message}}
+</script>
+        <script type="text/ng-template" id="agra.html">
+<h1 style="background-color:green;">Agra</h1>
+<p>Agra is a city on the banks of the Yamuna river in the Indian state of Uttar Pradesh, about 230 kilometres south-east of the national capital New Delhi and 330 km west of the state capital Lucknow</p>
+
+{{message}}
+</script>
+    </div>
+    <script>
+        var mainApp = angular.module("mainApp", ['ngRoute']);
+        mainApp.config(['$routeProvider', function ($routeProvider) {
+            $routeProvider
+                .when('/aurangabad', {
+                    templateUrl: 'aurangabad.html', controller: 'auController'
+                })
+                .when('/pune', {
+                    templateUrl: 'pune.html', controller: 'puController'
+                })
+                .when('/agra', {
+                    templateUrl: 'agra.html', controller: 'agController'
+                })
+        }]);
+        mainApp.controller('auController', function ($scope) {
+            $scope.message = "aurangabad page";
+        });
+        mainApp.controller('puController', function ($scope) {
+            $scope.message = "pune page";
+        });
+        mainApp.controller('agController', function ($scope) {
+            $scope.message = "agra page";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!-- Write an Angular]S script to print details of bank (bank name, MICR code, IFC code, address etc.) in tabular form using ng-repeat
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Slip3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<style>
+    body,h1 {
+padding: 1rem;
+font-size: 1.5rem;
+background-color:rgb(122, 164, 125);
+color: aliceblue;
+}
+th,td{
+    padding: 1rem;
+    border: 2px solid aliceblue;
+  }
+</style>
+<body ng-app="myApp" ng-controller="ListController">
+    <h1 align='center'>Bank Details</h1>
+    <table border=1 align='center'>
+        <thead>
+
+            <tr>
+
+                <th>Bank Name</th>
+                <th>MICR Code</th>
+                <th>IFC Code</th>
+                <th>Address</th>
+
+            </tr>
+
+        </thead>
+
+        <tr ng-repeat="bank in bankDetails">
+            <td> {{bank.bname}} </td>
+            <td> {{bank.micr}} </td>
+            <td> {{bank.ifc}} </td>
+            <td> {{bank.address}} </td>
+        </tr>
+
+    </table>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('ListController',function($scope){
+            $scope.bankDetails = [
+                {
+                    bname: 'SBI',
+                    micr: 345678908,
+                    ifc: 'SBIN0013527',
+                    address: 'PUNE',
+                },
+                {
+                    bname: 'SBI',
+                    micr: 345678976,
+                    ifc: 'SBINO013528',
+                    address: 'PUNE',
+                },
+                {
+                    bname: 'SBI',
+                    micr: 345678976,
+                    ifc: 'SBIN0013528',
+                    address: 'Hadapsar',
+                }
+            ]});
+
+    </script>
+</body>
+</html>

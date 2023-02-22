@@ -1,0 +1,51 @@
+<!-- Using AngularJS create a SPA that to accept the details such as name, mobile number,
+pin-code and email address and make validation. Name should contain character only,
+mobile number should contain only 10 digit, Pin code should contain only 6 digit,
+email id should contain only one @, . Symbol  -->
+
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <head>
+        <title>Slip 29</title>
+    </head>
+
+    
+    
+    <body>
+        <div ng-app="formApp" ng-controller="formCtrl">
+            <form name="form">
+              <label>Name:</label>
+              <input type="text" name="name" ng-model="formData.name" ng-pattern="/^[a-zA-Z ]+$/" required>
+              <span ng-show="form.name.$error.pattern">Name should contain characters only</span>
+              <br>
+              <label>Mobile Number:</label>
+              <input type="text" name="mobileNumber" ng-model="formData.mobileNumber" ng-pattern="/^\d{10}$/" required>
+              <span ng-show="form.mobileNumber.$error.pattern">Mobile number should contain only 10 digits</span>
+              <br>
+              <label>Pin Code:</label>
+              <input type="text" name="pinCode" ng-model="formData.pinCode" ng-pattern="/^\d{6}$/" required>
+              <span ng-show="form.pinCode.$error.pattern">Pin code should contain only 6 digits</span>
+              <br>
+              <label>Email:</label>
+              <input type="email" name="email" ng-model="formData.email" required>
+              <span ng-show="form.email.$error.email">Invalid email address</span>
+              <br>
+              <button ng-disabled="form.$invalid" ng-click="submitForm()">Submit</button>
+            </form>
+          </div>
+          
+      <script>
+        var app = angular.module('formApp', []);
+app.controller('formCtrl', function($scope) {
+  $scope.formData = {};
+  $scope.submitForm = function() {
+    console.log("Form data: ", $scope.formData);
+    // Additional code to submit form data to the server
+  }
+});
+
+
+      </script>
+    </body>
+</html>

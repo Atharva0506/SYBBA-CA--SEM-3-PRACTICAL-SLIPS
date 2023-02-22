@@ -1,0 +1,63 @@
+<!-- S5)Write an AngularJS script for addition of two numbers using ng-init, ng-model
+& ng-bind. And also Demonstrate ng-show, ng-disabled, ng-click directives on
+button component.-->
+<html>
+	<head>
+		<title>AJS 5</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+		<style>
+		body{
+			background-color:teal;
+			margin:2%;
+			font-size:2em;
+			color:white;
+			font-family:verdana;
+		}
+		input{
+			font-size:1.5em;
+		}
+		</style>
+	</head>
+	<body ng-app="myApp" ng-contoller="myController">
+		<h1>ng-model directive</h1>
+		<div ng-app="myApp" ng-controller="myController" ng-init="number1=20; number2=30">
+			Number 1: <input type="number" ng-model="number1">
+			Number 2: <input type="number" ng-model="number2">
+			Result:{{number1+number2}}
+		</div>
+		
+		<br>
+		
+		<h1>ng-bind directive</h1>
+		<div ng-app="myApp" ng-controller="myController" ng-init="number1=20; number2=30">
+			Number 1: <input type="number" ng-model="number3" ng-change="add()"/>
+			Number 2: <input type="number" ng-model="number4" ng-change="add()"/>
+			<b>Addition=</b><span ng-bind="result1"></span>
+		</div>
+		
+		<br>
+		<h1>Button</h1>
+		<div ng-app="myApp" ng-init="myButton=true">
+			<button ng-disabled="myButton">Click ME!</button>
+			<br>
+			<input type="checkbox" ng-model="myButton"/>button
+			<br>
+			Disabled:{{myButton}}
+		</div>
+		
+		<script>
+			var app= angular.module('myApp',[]);
+			app.controller('myController',function($scope){
+				$scope.number3 = 1;
+				$scope.number4 = 1;
+				$scope.add = function(){
+					$scope.result1 = ($scope.number3 + $scope.number4);
+					}
+				$scope.IsVisible = false;
+				$scope.ShowHide = function(){
+					$scope.IsVisible = true;
+				}
+			});
+		</script>
+	</body>
+</html>

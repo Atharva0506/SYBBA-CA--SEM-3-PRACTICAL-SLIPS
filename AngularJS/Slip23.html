@@ -1,0 +1,48 @@
+<!-- Using AngularJS create a SPA to carry out validation for a username entered in
+textbox. If the textbox is blank, alert ‘Enter username’. If the number of characters is
+less than three, alert ’ Username is too short’. If value entered is appropriate the print
+‘Valid username’ and password should be minimum 8 characters. -->
+
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <head>
+        <title>Slip 29</title>
+    </head>
+
+    
+    
+    <body>
+
+        <div ng-app="usernameApp" ng-controller="usernameCtrl">
+            <form name="usernameForm">
+              <label>Username:</label>
+              <input type="text" name="username" ng-model="username" required minlength="3" maxlength="8">
+              <span ng-show="usernameForm.username.$error.required">Enter username</span>
+              <span ng-show="usernameForm.username.$error.minlength">Username is too short</span>
+              <br>
+              <label>Password:</label>
+              <input type="password" name="password" ng-model="password" required minlength="8" maxlength="15">
+              <span ng-show="usernameForm.password.$error.required">Enter password</span>
+              <span ng-show="usernameForm.password.$error.minlength">Password is too short</span>
+              <br>
+              <button ng-disabled="usernameForm.$invalid" ng-click="submitUsername()">Submit</button>
+            </form>
+          </div>
+          
+       <script>
+        var app = angular.module('usernameApp', []);
+app.controller('usernameCtrl', function($scope) {
+  $scope.submitUsername = function() {
+    if (!$scope.username) {
+      alert('Enter username');
+    } else if ($scope.username.length < 3) {
+      alert('Username is too short');
+    } else {
+      alert('Valid username');
+    }
+  }
+});
+
+       </script>
+</html>

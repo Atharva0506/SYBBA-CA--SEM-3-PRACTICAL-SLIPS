@@ -1,0 +1,46 @@
+<!-- Using AngularJS create a SPA to fetch suggestions when is user is typing in a textbox.
+(eg like google suggestions. Hint create array of suggestions and matching string will
+be displayed). -->
+
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <head>
+        <title>Slip 29</title>
+    </head>
+
+    
+    
+    <body>
+
+        <div ng-app="suggestionApp" ng-controller="suggestionCtrl">
+            <form>
+              <label>Search:</label>
+              <input type="text" ng-model="searchTerm" ng-keyup="getSuggestions()">
+              <div ng-repeat="suggestion in suggestions | filter:searchTerm">
+                {{suggestion}}
+              </div>
+            </form>
+          </div>
+          
+       <script>var app = angular.module('suggestionApp', []);
+        app.controller('suggestionCtrl', function($scope) {
+          $scope.suggestions = [
+            'Apple',
+            'Banana',
+            'Mango',
+            'Orange',
+            'Pineapple',
+            'Grapes',
+            'Watermelon'
+          ];
+          $scope.getSuggestions = function() {
+            $scope.suggestions = $scope.suggestions.filter(function(suggestion) {
+              return suggestion.toLowerCase().includes($scope.searchTerm.toLowerCase());
+            });
+          }
+        });
+        </script>       
+        </div>
+    </body>
+</html>
